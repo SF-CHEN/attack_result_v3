@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wing Loong I UAV (War Thunder)
+* source:	https://sketchfab.com/3d-models/wing-loong-i-uav-war-thunder-65ee1be90ae34b41a8e2464a4737131d
+* author:	KojfDiscord (https://sketchfab.com/KojfDiscord)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wing Loong I UAV (War Thunder)" (https://sketchfab.com/3d-models/wing-loong-i-uav-war-thunder-65ee1be90ae34b41a8e2464a4737131d) by KojfDiscord (https://sketchfab.com/KojfDiscord) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

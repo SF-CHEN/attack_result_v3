@@ -1,0 +1,11 @@
+Model Information:
+* title:	Command Center
+* source:	https://sketchfab.com/3d-models/command-center-3cfb8b58b61e4faa8a0450d5eadb27ef
+* author:	tjc997 (https://sketchfab.com/tjc997)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Command Center" (https://sketchfab.com/3d-models/command-center-3cfb8b58b61e4faa8a0450d5eadb27ef) by tjc997 (https://sketchfab.com/tjc997) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Radar Station - WIP
+* source:	https://sketchfab.com/3d-models/radar-station-wip-d9657bf768ce43f5b20411b036012a9d
+* author:	Ingoldt (https://sketchfab.com/nilsolejonack)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Radar Station - WIP" (https://sketchfab.com/3d-models/radar-station-wip-d9657bf768ce43f5b20411b036012a9d) by Ingoldt (https://sketchfab.com/nilsolejonack) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
