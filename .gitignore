@@ -4,3 +4,8 @@ dist
 *.local
 .vscode/*
 !.vscode/extensions.json
+
+# Downloaded source archives and temporary extraction directory.
+# The generated public/models/*.glb files may be committed deliberately.
+model-source/
+.model-temp/
