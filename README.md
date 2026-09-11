@@ -9,11 +9,12 @@ Vue 3 + TypeScript + Vite + Three.js + GSAP + Pinia 实现的电影化态势展�
 - 左右功能入口与抽屉面板
 - 底部六阶段任务时间轴
 - Three.js 海陆空基础场景、Bloom、Tone Mapping、雾、动态海面、星点环境
-- 无人机、预警机、舰船、训练中心、地面站等 3D 占位模型
+- 无人机、预警机、舰船、训练中心、地面站等 3D 场景节点
 - 数据流粒子、模型下发链路、目标识别锥、目标锁定圈
 - AnimationDirector：步骤只负责编排，不直接操作业务 DOM
 - 样本数据按方法增量追加，步骤切换不会自动清空
-- GLB/GLTF 自动加载失败时回退到内置几何体，因此没有正式模型也可以先跑通流程
+- GLB 自动加载失败时回退到内置几何体，因此没有正式模型也可以先跑通流程
+- 正式模型加载后自动做尺寸归一化、中心点校准、地面锚定和基础朝向调整
 
 ## 本地运行
 
@@ -29,9 +30,19 @@ npm run typecheck
 npm run build
 ```
 
-## 3D 模型约定
+## 已选正式 3D 模型
 
-把下载后的模型统一放入 `public/models/`，并使用以下文件名：
+当前按下面五个模型适配：
+
+- KJ-2000 AWACS → `awacs.glb`
+- Wing Loong I UAV → `uav.glb`
+- Type-055 Destroyer → `ship.glb`
+- Radar Station - WIP → `ground-station.glb`
+- Command Center → `training-center.glb`
+
+模型完整署名与许可证见 [`THIRD_PARTY_ASSETS.md`](./THIRD_PARTY_ASSETS.md)。
+
+运行时目录：
 
 ```text
 public/models/
@@ -44,7 +55,28 @@ public/models/
 
 如果某个文件不存在，页面会自动使用低模占位体，不阻塞开发。
 
-模型建议：
+### 从原始 Sketchfab ZIP 一键生成 GLB（Windows）
+
+把五个下载包保持原文件名放到项目根目录的 `model-source/`：
+
+```text
+model-source/
+├─ kj-2000_awacs.zip
+├─ wing_loong_i_uav_war_thunder.zip
+├─ type-055_destroyer.zip
+├─ radar_station_-_wip.zip
+└─ command_center.zip
+```
+
+然后执行：
+
+```bash
+npm run models:prepare
+```
+
+脚本会自动解压 `scene.gltf + scene.bin + textures`，并打包成可直接由 Three.js 加载的单文件 GLB 到 `public/models/`。
+
+## 模型规范
 
 - glTF 2.0 / GLB
 - 单个核心模型尽量控制在 5-15 MB
@@ -52,7 +84,7 @@ public/models/
 - 贴图推荐 2K，特别近的主体可使用 4K
 - 删除无关动画、碰撞体和隐藏模型
 - 最好没有外国国旗、国家徽记、品牌水印
-- 原点放在模型主体中心附近，并尽量统一 Y-up
+- 模型单位无需强行统一，`modelRegistry.ts` 会在加载阶段自动归一化到场景尺度
 
 ## 动画架构
 
@@ -74,10 +106,11 @@ AnimationDirector
 
 ## 下一阶段
 
-1. 替换正式 GLB 模型并校准比例、位置、朝向。
+1. 把正式 GLB 放入 `public/models/`，在浏览器中微调模型朝向、位置与镜头构图。
 2. 增加真实地形/海岸远景或高质量场景底图。
-3. 完整细化地面 1-11 每一步的独立演出时间线。
-4. 完整细化空中 1-8 每一步的独立演出时间线。
-5. 增加样本图片轮播、目标检测框数据映射、检测进度与准确率详情。
-6. 接入 WebSocket，把真实系统消息转换为和模拟按钮完全一致的流程事件。
-7. 最后统一优化镜头语言、动效节奏、音效和性能。
+3. 优先把 Ground 1 → 4 → 5 → 6 做成四段电影镜头。
+4. 完整细化地面 1-11 每一步的独立演出时间线。
+5. 完整细化空中 1-8 每一步的独立演出时间线。
+6. 增加样本图片轮播、目标检测框数据映射、检测进度与准确率详情。
+7. 接入 WebSocket，把真实系统消息转换为和模拟按钮完全一致的流程事件。
+8. 最后统一优化镜头语言、动效节奏、音效和性能。
