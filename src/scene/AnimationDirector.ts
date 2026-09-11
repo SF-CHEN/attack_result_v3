@@ -36,6 +36,9 @@ export class AnimationDirector {
   playGround(step: number) {
     const tl = this.begin()
     this.clearTransientSignals()
+    // Ground and air validation are separate demonstrations. Entering one
+    // explicitly removes the other mode's temporary attack link.
+    this.scene.setFlowState('airToAwacs', 'hidden')
 
     if (step !== 6 && step !== 11) {
       this.scene.showRecognition(false)
@@ -165,6 +168,9 @@ export class AnimationDirector {
     const tl = this.begin()
     this.clearTransientSignals()
     this.scene.setTrainingEnergy(false)
+    this.scene.setFlowState('groundToTraining', 'hidden')
+    this.scene.setFlowState('trainingToUav', 'hidden')
+    this.scene.setFlowState('trainingToAwacs', 'hidden')
 
     if (![1, 5, 8].includes(step)) {
       this.scene.showRecognition(false)
